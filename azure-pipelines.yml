@@ -26,3 +26,11 @@ steps:
 - script: |
     dir
   displayName: 'list cwd contents (verify build)'
+
+- task: AzureFileCopy@3
+  inputs:
+    SourcePath: '$(System.DefaultWorkingDirectory)/dist'
+    azureSubscription: 'Azure for Students (fcd32315-6721-47fe-885c-c133531da12d)'
+    Destination: 'AzureBlob'
+    storage: 'mathsonlinestorage'
+    ContainerName: '$web'
