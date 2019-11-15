@@ -1,9 +1,10 @@
 <template>
     <div>
         <v-app-bar app color="blue" clipped-left>
-            <v-app-bar-nav-icon @click="drawerOpen = !drawerOpen"></v-app-bar-nav-icon>
-            <v-toolbar-title>
-                <span class="heading mr-2">Math Online</span>
+            <v-app-bar-nav-icon  @click="drawerOpen = !drawerOpen"></v-app-bar-nav-icon>
+            <v-toolbar-title class="pa-0">
+                <span class="title mr-2 d-none d-sm-inline-flex">Math Online</span>
+                <span class="heading mr-2 d-sm-none">Math Online</span>
                 <span class="font-weight-thin title d-none d-sm-inline-flex">Digital Problem Generator</span>
                 <span class="font-weight-thin subtitle-1 d-sm-none">Digital Problem Generator</span>
             </v-toolbar-title>
