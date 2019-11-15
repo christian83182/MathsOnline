@@ -4,7 +4,8 @@
             <v-app-bar-nav-icon @click="drawerOpen = !drawerOpen"></v-app-bar-nav-icon>
             <v-toolbar-title>
                 <span class="heading mr-2">Math Online</span>
-                <span class="font-weight-thin heading">Digital Problem Generator</span>
+                <span class="font-weight-thin title d-none d-sm-inline-flex">Digital Problem Generator</span>
+                <span class="font-weight-thin subtitle-1 d-sm-none">Digital Problem Generator</span>
             </v-toolbar-title>
         </v-app-bar>
 
