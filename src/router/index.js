@@ -1,8 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Changelog from "@/views/Changelog";
-import About from "@/views/About";
 
 Vue.use(VueRouter);
 
@@ -14,13 +12,16 @@ const routes = [
   },{
     path: "/changelog",
     name: "changelog",
-    component: Changelog
+    component: () => import("../views/Changelog.vue")
   },{
     path: "/about",
     name: "about",
-    component: About
+    component: () => import("../views/About.vue")
+  },{
+    path: "/addition",
+    name: "addition",
+    component: () => import("../views/Addition.vue")
   }
-
 ];
 
 const router = new VueRouter({

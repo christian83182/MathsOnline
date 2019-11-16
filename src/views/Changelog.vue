@@ -1,25 +1,25 @@
 <template>
     <v-container class="fill-height">
-        <v-row align="center" justify="center">
-            <v-col cols="">
+        <v-row class="justify-center">
+            <v-col cols="12">
+                <div class="justify-center">
+                    <div v-if="commitHistoryResponse === null">
+                        <v-skeleton-loader  class="ma-2" type="article" v-for="index in 3" :key="index"></v-skeleton-loader>
+                    </div>
 
-                <div v-if="commitHistoryResponse === null">
-                    <v-skeleton-loader  class="ma-2" type="article" v-for="index in 3" :key="index"></v-skeleton-loader>
+                    <v-timeline dense v-if="this.commitHistoryResponse !== null">
+                        <v-timeline-item v-for="(commit, index) in this.commitHistoryResponse" :key="index">
+                            <v-card class="mr-6">
+                                <v-card-title class="subtitle-1 py-2 px-4">
+                                    Change #{{ commitHistoryResponse.length - index }}
+                                </v-card-title>
+                                <v-card-text class="pb-3 px-6">
+                                    {{ commit.commit.message }}
+                                </v-card-text>
+                            </v-card>
+                        </v-timeline-item>
+                    </v-timeline>
                 </div>
-
-                <v-timeline dense v-if="this.commitHistoryResponse !== null">
-                    <v-timeline-item v-for="(commit, index) in this.commitHistoryResponse" :key="index">
-                        <v-card class="mr-6">
-                            <v-card-title class="subtitle-1 py-2 px-4">
-                                Change #{{ commitHistoryResponse.length - index }}
-                            </v-card-title>
-                            <v-card-text class="pb-3 px-6">
-                                {{ commit.commit.message }}
-                            </v-card-text>
-                        </v-card>
-                    </v-timeline-item>
-                </v-timeline>
-
             </v-col>
         </v-row>
     </v-container>

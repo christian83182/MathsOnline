@@ -10,7 +10,7 @@
             </v-toolbar-title>
         </v-app-bar>
 
-        <v-navigation-drawer v-model="drawerOpen" app clipped disable-resize-watcher disable-route-watcher>
+        <v-navigation-drawer v-model="drawerOpen" app clipped disable-resize-watcher>
             <v-list-item class="d-lg-none">
                 <v-list-item-content>
                     <v-list-item-title class="title font-weight-light">Math Online</v-list-item-title>
@@ -33,7 +33,7 @@
                     </template>
 
                     <div v-for="(topic,index) in topicsList" :key="index">
-                        <v-list-item v-for="(subtopic, subIndex) in topic.subTopics" :key="subIndex" link>
+                        <v-list-item v-for="(subtopic, subIndex) in topic.subTopics" :key="subIndex" link :to="subtopic.route">
                             <v-list-item-icon class="pl-4"><v-icon :color="topic.color">{{ subtopic.icon }}</v-icon> </v-list-item-icon>
                             <v-list-item-content>{{ subtopic.name }}</v-list-item-content>
                         </v-list-item>

@@ -22,7 +22,7 @@
 
                 <v-expansion-panel-content class="pa-0">
                   <v-list dense>
-                    <v-list-item v-for="(subTopic, subIndex) in topic.subTopics" :key="subIndex" class="px-0" link>
+                    <v-list-item v-for="(subTopic, subIndex) in topic.subTopics" :key="subIndex" class="px-0" link :to="subTopic.route">
                       <v-list-item-icon><v-icon :color="topic.color">{{ subTopic.icon }}</v-icon> </v-list-item-icon>
                       <v-list-item-content class="font-weight-light">{{ subTopic.name }}</v-list-item-content>
                       <v-list-item-action><v-icon :color="topic.color">mdi-chevron-right</v-icon></v-list-item-action>
