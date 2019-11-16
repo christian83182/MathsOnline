@@ -10,12 +10,41 @@
             </v-toolbar-title>
         </v-app-bar>
 
-        <v-navigation-drawer v-model="drawerOpen" app clipped>
+        <v-navigation-drawer v-model="drawerOpen" app clipped disable-resize-watcher disable-route-watcher temporary>
+            <v-list-item>
+                <v-list-item-content>
+                    <v-list-item-title class="title font-weight-light">Math Online</v-list-item-title>
+                    <v-list-item-subtitle class="subtitle-1 font-weight-thin">Digital Problem Generator</v-list-item-subtitle>
+                </v-list-item-content>
+
+            </v-list-item>
+
+            <v-divider></v-divider>
+
             <v-list>
                 <v-list-item link>
-                    <v-list-item-action> <v-icon>mdi-alert-circle</v-icon> </v-list-item-action>
-                    <v-list-item-content> <v-list-item-title>Nothing here yet!</v-list-item-title> </v-list-item-content>
+                    <v-list-item-action> <v-icon>mdi-home</v-icon> </v-list-item-action>
+                    <v-list-item-content> <v-list-item-title>Home</v-list-item-title> </v-list-item-content>
                 </v-list-item>
+
+                <v-list-item link>
+                    <v-list-item-action> <v-icon>mdi-information</v-icon> </v-list-item-action>
+                    <v-list-item-content> <v-list-item-title>About</v-list-item-title> </v-list-item-content>
+                </v-list-item>
+
+                <v-list-group prepend-icon="mdi-book">
+                    <template v-slot:activator>
+                        <v-list-item-title>Topics</v-list-item-title>
+                    </template>
+
+                    <div v-for="(topic,index) in topicsList" :key="index">
+                        <v-list-item v-for="(subtopic, subIndex) in topic.subTopics" :key="subIndex" link>
+                            <v-list-item-icon class="pl-4"><v-icon :color="topic.color">{{ subtopic.icon }}</v-icon> </v-list-item-icon>
+                            <v-list-item-content>{{ subtopic.name }}</v-list-item-content>
+                        </v-list-item>
+                    </div>
+
+                </v-list-group>
             </v-list>
 
             <template v-slot:append>
@@ -35,6 +64,7 @@
         name: "NavBar",
         data(){
             return {
+                topicsList: this.$store.state.topics,
                 drawerOpen: false,
             }
         },

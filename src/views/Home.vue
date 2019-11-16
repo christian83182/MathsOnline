@@ -1,16 +1,17 @@
 <template>
-  <v-container fluid>
+  <v-container fluid class="fill-height">
     <v-row align="center" justify="center">
       <v-col cols="12">
-        <v-card class="mx-auto mt-0" max-width="800">
+        <v-card class="mx-auto mt-0 elevation-24" max-width="800">
           <v-card-title class="mx-auto">
             <span class="font-weight-regular mx-2">TOPICS</span>
             <span class="font-weight-thin">| Select a topic...</span>
           </v-card-title>
-          <v-divider></v-divider>
-          <v-card-text>
 
-            <v-expansion-panels focusable multiple>
+          <v-divider></v-divider>
+
+          <v-card-text class="pa-4">
+            <v-expansion-panels focusable accordion multiple class="elevation-1">
               <v-expansion-panel v-for="(topic, index) in topicsList" :key="index">
                 <v-expansion-panel-header>
                   <div>
@@ -21,7 +22,7 @@
 
                 <v-expansion-panel-content class="pa-0">
                   <v-list dense>
-                    <v-list-item v-for="(subTopic, subIndex) in topic.subTopics" :key="subIndex" class="px-0" @click="$emit('click')">
+                    <v-list-item v-for="(subTopic, subIndex) in topic.subTopics" :key="subIndex" class="px-0" link>
                       <v-list-item-icon><v-icon :color="topic.color">{{ subTopic.icon }}</v-icon> </v-list-item-icon>
                       <v-list-item-content class="font-weight-light">{{ subTopic.name }}</v-list-item-content>
                       <v-list-item-action><v-icon :color="topic.color">mdi-chevron-right</v-icon></v-list-item-action>

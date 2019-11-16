@@ -25,7 +25,7 @@ export default new Vuex.Store({
     },{
       name: "Miscellaneous Arithmetic",
       description: "This topic covers more complex/real life arithmetic such as problems involving area, volume, time, and currency.",
-      color:"yellow",
+      color:"amber",
       subTopics:[
         {name:"Area",icon:"mdi-square-outline"},
         {name:"Volume",icon:"mdi-cube-outline"},
@@ -34,7 +34,7 @@ export default new Vuex.Store({
     },{
       name: "Statistics",
       description: "Focused primarily on basic averaging statistics including mean, median, mode, and range. ",
-      color:"orange",
+      color:"deep-orange",
       subTopics:[
         {name:"Mean",icon:"mdi-poll"},
         {name:"Median",icon:"mdi-align-vertical-center"},
@@ -43,9 +43,9 @@ export default new Vuex.Store({
     },{
       name: "Algebra",
       description: "Narrowly focused on Linear Algebra; dealing with simplifying expressions, using formulas to compute values, and solving equations.",
-      color:"red",
+      color:"pink",
       subTopics:[
-        {name:"Simplifying Expressions",icon:"mdi-square-root"},
+        {name:"Simplification",icon:"mdi-square-root"},
         {name:"Using Formulas",icon:"mdi-function-variant"},
         {name:"Solving Equations",icon:"mdi-thought-bubble"}]
     }]
