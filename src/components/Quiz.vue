@@ -2,12 +2,18 @@
     <v-container class="fill-height justify-center">
         <v-responsive max-width="800" class="elevation-24">
             <v-stepper v-model="stepperCount">
+                <v-toolbar :color="subTopicData.topicColor">
+                    <v-toolbar-title>
+                        <span class="font-weight-regular text-uppercase">{{ subTopicData.topicName }} </span>
+                        <span class="font-weight-light">| {{ subTopicData.subTopicName }}</span>
+                    </v-toolbar-title>
+                </v-toolbar>
                 <v-stepper-header>
-                    <v-stepper-step :complete="stepperCount > 1" step="1">Configure Practice</v-stepper-step>
+                    <v-stepper-step :complete="stepperCount > 1" step="1" :color="subTopicData.topicColor">Configure Practice</v-stepper-step>
                     <v-divider></v-divider>
-                    <v-stepper-step :complete="stepperCount > 2" step="2">Answer Questions</v-stepper-step>
+                    <v-stepper-step :complete="stepperCount > 2" step="2" :color="subTopicData.topicColor">Answer Questions</v-stepper-step>
                     <v-divider></v-divider>
-                    <v-stepper-step :complete="stepperCount > 3" step="3">Display Results</v-stepper-step>
+                    <v-stepper-step :complete="stepperCount > 3" step="3" :color="subTopicData.topicColor">Display Results</v-stepper-step>
                 </v-stepper-header>
 
                 <v-stepper-items>
@@ -48,7 +54,8 @@
     export default {
         name: "Quiz",
         props:{
-            generateQuestion: Function
+            generateQuestion: Function,
+            subTopicData: Object
         },
         data(){
             return{
