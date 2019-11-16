@@ -10,8 +10,8 @@
             </v-toolbar-title>
         </v-app-bar>
 
-        <v-navigation-drawer v-model="drawerOpen" app clipped disable-resize-watcher disable-route-watcher temporary>
-            <v-list-item>
+        <v-navigation-drawer v-model="drawerOpen" app clipped disable-resize-watcher disable-route-watcher>
+            <v-list-item class="d-lg-none">
                 <v-list-item-content>
                     <v-list-item-title class="title font-weight-light">Math Online</v-list-item-title>
                     <v-list-item-subtitle class="subtitle-1 font-weight-thin">Digital Problem Generator</v-list-item-subtitle>
@@ -22,17 +22,12 @@
             <v-divider></v-divider>
 
             <v-list>
-                <v-list-item link>
+                <v-list-item link to="/">
                     <v-list-item-action> <v-icon>mdi-home</v-icon> </v-list-item-action>
                     <v-list-item-content> <v-list-item-title>Home</v-list-item-title> </v-list-item-content>
                 </v-list-item>
 
-                <v-list-item link>
-                    <v-list-item-action> <v-icon>mdi-information</v-icon> </v-list-item-action>
-                    <v-list-item-content> <v-list-item-title>About</v-list-item-title> </v-list-item-content>
-                </v-list-item>
-
-                <v-list-group prepend-icon="mdi-book">
+                <v-list-group prepend-icon="mdi-book-open-variant">
                     <template v-slot:activator>
                         <v-list-item-title>Topics</v-list-item-title>
                     </template>
@@ -43,8 +38,17 @@
                             <v-list-item-content>{{ subtopic.name }}</v-list-item-content>
                         </v-list-item>
                     </div>
-
                 </v-list-group>
+
+                <v-list-item link to="/about">
+                    <v-list-item-action> <v-icon>mdi-information</v-icon> </v-list-item-action>
+                    <v-list-item-content> <v-list-item-title>About</v-list-item-title> </v-list-item-content>
+                </v-list-item>
+
+                <v-list-item link to="/changelog">
+                    <v-list-item-action> <v-icon>mdi-code-brackets</v-icon> </v-list-item-action>
+                    <v-list-item-content> <v-list-item-title>Changelog</v-list-item-title> </v-list-item-content>
+                </v-list-item>
             </v-list>
 
             <template v-slot:append>

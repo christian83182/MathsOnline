@@ -8,7 +8,7 @@ export default new Vuex.Store({
     topics:[{
       name: "Basic Arithmetic",
       description: "Basic arithmetic involves the application of basic numerical operators such as addition, subtraction, multiplication, and division.",
-      color:"light-blue",
+      color:"cyan",
       subTopics:[
         {name:"Addition",icon:"mdi-plus"},
         {name:"Subtraction",icon:"mdi-minus"},
