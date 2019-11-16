@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-app-bar app color="blue" clipped-left>
+        <v-app-bar app color="blue" clipped-left dark>
             <v-app-bar-nav-icon  @click="drawerOpen = !drawerOpen"></v-app-bar-nav-icon>
             <v-toolbar-title class="pa-0">
                 <span class="title mr-2 d-none d-sm-inline-flex">Math Online</span>
@@ -12,13 +12,20 @@
 
         <v-navigation-drawer v-model="drawerOpen" app clipped>
             <v-list>
-
                 <v-list-item link>
                     <v-list-item-action> <v-icon>mdi-alert-circle</v-icon> </v-list-item-action>
                     <v-list-item-content> <v-list-item-title>Nothing here yet!</v-list-item-title> </v-list-item-content>
                 </v-list-item>
-
             </v-list>
+
+            <template v-slot:append>
+                <div class="ma-2">
+                    <v-btn block @click="toggleDarkMode">
+                        <v-icon left>mdi-brightness-6</v-icon>
+                        {{ isDarkMode() ? "Light Theme" : "Dark Theme" }}
+                    </v-btn>
+                </div>
+            </template>
         </v-navigation-drawer>
     </div>
 </template>
@@ -28,7 +35,15 @@
         name: "NavBar",
         data(){
             return {
-                drawerOpen: false
+                drawerOpen: false,
+            }
+        },
+        methods:{
+            toggleDarkMode(){
+                this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+            },
+            isDarkMode(){
+                return this.$vuetify.theme.dark;
             }
         }
     }
