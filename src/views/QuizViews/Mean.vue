@@ -21,7 +21,7 @@
                         let thirdNum = getRndInteger(1,10);
                         let questionString = firstNum*3 +", " + secondNum*3 +", " + thirdNum*3;
                         questionData= {
-                            question: "<span class='font-weight-thin mr-4'>Find the mean of: </span> <span class='font-weight-regular'>"+ questionString +"</span>",
+                            question: "<span class='font-weight-thin mr-4'>Find the Mean of: </span> <span class='font-weight-regular'>"+ questionString +"</span>",
                             correctAnswer: firstNum+secondNum+thirdNum,
                             incorrectAnswers: []
                         }
@@ -35,7 +35,7 @@
                         let offset = getRndInteger(1,100);
                         let questionString = ((firstNum*4)+offset) +", " + ((secondNum*4)+offset) +", " + ((thirdNum*4)+offset) + ", " + ((fourthNum*4)+offset);
                         questionData= {
-                            question: "<span class='font-weight-thin mr-4'>Find the mean of: </span> <span>"+ questionString +"</span>",
+                            question: "<span class='font-weight-thin mr-4'>Find the Mean of: </span> <span>"+ questionString +"</span>",
                             correctAnswer: firstNum + secondNum + thirdNum + fourthNum + offset,
                             incorrectAnswers: []
                         }
@@ -51,7 +51,7 @@
                         let offset = (getRndInteger(0,1000)/multiplier);
                         let questionString = ((firstNum*5)+offset) +", " + ((secondNum*5)+offset) +", " + ((thirdNum*5)+offset) + ", " + ((fourthNum*5)+offset) +", " + ((fifthNum*5)+offset);
                         questionData= {
-                            question: "<span class='font-weight-thin mr-4'>Find the mean of: </span> <span>"+ questionString +"</span>",
+                            question: "<span class='font-weight-thin mr-4'>Find the Mean of: </span> <span>"+ questionString +"</span>",
                             correctAnswer: Number((firstNum + secondNum + thirdNum + fourthNum + fifthNum + offset).toPrecision(6)),
                             incorrectAnswers: []
                         }

@@ -77,7 +77,7 @@
                                     <tbody>
                                         <tr v-for="(questionData, index) in results" :key="index"
                                             :class="questionData.userAnswer === questionData.correctAnswer? 'default' : 'error white--text'">
-                                            <td class="text-left">{{ questionData.questionNum }}) {{ questionData.questionText}}</td>
+                                            <td class="text-left" v-html="questionData.questionText"></td>
                                             <td class="text-center">{{ questionData.userAnswer }}</td>
                                             <td class="text-center">{{ questionData.correctAnswer }}</td>
                                         </tr>

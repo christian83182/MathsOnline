@@ -29,7 +29,7 @@
                         sorted.sort((x,y) => y-x);
 
                         questionData= {
-                            question: "<span class='font-weight-thin mr-4'>Solve: </span> <span>"+ questionString +"</span>",
+                            question: "<span class='font-weight-thin mr-4'>Find the Range of: </span> <span>"+ questionString +"</span>",
                             correctAnswer: sorted[0] - sorted[sorted.length-1],
                             incorrectAnswers: []
                         }
@@ -49,7 +49,7 @@
                         sorted.sort((x,y) => y-x);
 
                         questionData= {
-                            question: "<span class='font-weight-thin mr-4'>Solve: </span> <span>"+ questionString +"</span>",
+                            question: "<span class='font-weight-thin mr-4'>Find the Range of: </span> <span>"+ questionString +"</span>",
                             correctAnswer: sorted[0] - sorted[sorted.length-1],
                             incorrectAnswers: []
                         }
@@ -69,7 +69,7 @@
                         sorted.sort((x,y) => y-x);
 
                         questionData= {
-                            question: "<span class='font-weight-thin mr-4'>Solve: </span> <span>"+ questionString +"</span>",
+                            question: "<span class='font-weight-thin mr-4'>Find the Range of: </span> <span>"+ questionString +"</span>",
                             correctAnswer: sorted[0] - sorted[sorted.length-1],
                             incorrectAnswers: []
                         }

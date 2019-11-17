@@ -21,7 +21,7 @@
                         sorted.sort((x,y) => x-y);
                         let questionString = numArray[0] +", " + numArray[1] +", " + numArray[2]+", " + numArray[3]+", " + numArray[4];
                         questionData= {
-                            question: "<span class='font-weight-thin mr-4'>Find the median of: </span> <span>"+ questionString +"</span>",
+                            question: "<span class='font-weight-thin mr-4'>Find the Median of: </span> <span>"+ questionString +"</span>",
                             correctAnswer: sorted[2],
                             incorrectAnswers: []
                         }
@@ -33,7 +33,7 @@
                         sorted.sort((x,y) => x-y);
                         let questionString = numArray[0] +", " + numArray[1] +", " + numArray[2]+", " + numArray[3]+", " + numArray[4]+", " + numArray[5];
                         questionData= {
-                            question: "<span class='font-weight-thin mr-4'>Find the median of: </span> <span>"+ questionString +"</span>",
+                            question: "<span class='font-weight-thin mr-4'>Find the Median of: </span> <span>"+ questionString +"</span>",
                             correctAnswer: (sorted[2] + sorted[3])/2,
                             incorrectAnswers: []
                         }
@@ -47,7 +47,7 @@
                         sorted.sort((x,y) => x-y);
                         let questionString = numArray[0] +", " + numArray[1] +", " + numArray[2]+", " + numArray[3]+", " + numArray[4]+", " + numArray[5];
                         questionData= {
-                            question: "<span class='font-weight-thin mr-4'>Find the median of: </span> <span>"+ questionString +"</span>",
+                            question: "<span class='font-weight-thin mr-4'>Find the Median of: </span> <span>"+ questionString +"</span>",
                             correctAnswer: (sorted[2] + sorted[3])/2,
                             incorrectAnswers: []
                         }

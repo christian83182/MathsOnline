@@ -24,7 +24,7 @@
                         let questionString = numArray[0] +", " + numArray[1] +", " + numArray[2]+", " + numArray[3]+", " + numArray[4];
 
                         questionData= {
-                            question: "<span class='font-weight-thin mr-4'>Find the mode of: </span> <span>"+ questionString +"</span>",
+                            question: "<span class='font-weight-thin mr-4'>Find the Mode of: </span> <span>"+ questionString +"</span>",
                             correctAnswer: thirdNum,
                             incorrectAnswers: []
                         }
@@ -42,7 +42,7 @@
                             +", " + numArray[4]+", " + numArray[5]+", " + numArray[6]+", " + numArray[7]+", " + numArray[8];
 
                         questionData= {
-                            question: "<span class='font-weight-thin mr-4'>Find the mode of: </span> <span>"+ questionString +"</span>",
+                            question: "<span class='font-weight-thin mr-4'>Find the Mode of: </span> <span>"+ questionString +"</span>",
                             correctAnswer: fourthNum,
                             incorrectAnswers: []
                         }
@@ -61,7 +61,7 @@
                             +", " + numArray[4]+", " + numArray[5]+", " + numArray[6]+", " + numArray[7]+", " + numArray[8];
 
                         questionData= {
-                            question: "<span class='font-weight-thin mr-4'>Find the mode of: </span> <span>"+ questionString +"</span>",
+                            question: "<span class='font-weight-thin mr-4'>Find the Mode of: </span> <span>"+ questionString +"</span>",
                             correctAnswer: fourthNum,
                             incorrectAnswers: []
                         }
