@@ -10,12 +10,35 @@
         data: function () {
             return {
                 generateQuestion: function (difficulty) {
-                    let rand = Math.round(Math.random() * 10);
-                    return {
-                        question: "5 + " + rand + " = ?",
-                        correctAnswer: (rand + 5).toString(),
-                        incorrectAnswers: ["1", "9", "3"]
+                    let questionData = null;
+
+                    if(difficulty === 'Easy'){
+                        let firstNum = getRndInteger(0,10);
+                        let secondNum = getRndInteger(0,10);
+                        questionData= {
+                            question: firstNum + " + " + secondNum + " = ?",
+                            correctAnswer: (firstNum + secondNum).toString(),
+                            incorrectAnswers: []
+                        }
+                    } else if(difficulty === "Medium"){
+                        let firstNum = getRndInteger(0,100);
+                        let secondNum = getRndInteger(0,100);
+                        questionData= {
+                            question: firstNum + " + " + secondNum + " = ?",
+                            correctAnswer: (firstNum + secondNum).toString(),
+                            incorrectAnswers: []
+                        }
+                    } else {
+                        let firstNum = getRndInteger(0,1000);
+                        let secondNum = getRndInteger(0,1000);
+                        questionData= {
+                            question: firstNum + " + " + secondNum + " = ?",
+                            correctAnswer: (firstNum + secondNum).toString(),
+                            incorrectAnswers: []
+                        }
                     }
+
+                    return questionData;
                 },
             }
         },
@@ -32,6 +55,10 @@
                 }
             }
         }
+    }
+
+    function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min) ) + min;
     }
 </script>
 

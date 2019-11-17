@@ -18,7 +18,7 @@
 
                 <v-stepper-items>
                     <v-stepper-content step="1">
-                        <v-form v-model="isNotValid">
+                        <v-form v-model="isNotValid" ref="form">
                             <v-text-field class="mt-1" type="number" label="Select number of questions..." outlined
                                           v-model="numOfQuestions" :rules="nameRules" clearable></v-text-field>
                             <v-select :items="['Easy','Medium','Hard']" label="Select a difficulty..." outlined
@@ -53,11 +53,11 @@
                         </div>
                     </v-stepper-content>
 
-                    <v-stepper-content step="3" class="pa-0">
+                    <v-stepper-content step="3" class="pa-4">
                         <v-container class="pa-0">
                             <div class="d-block text-center display-2 font-weight-light mt-12 mx-2">Result: {{Math.round((findCorrectAnswers()/numOfQuestions)*100)}}%</div>
                             <div class="d-block text-center title font-weight-light mb-12 mx-2">You answered {{findCorrectAnswers()}} of {{numOfQuestions}} questions correctly</div>
-                            <v-simple-table class="ma-4" dense>
+                            <v-simple-table class="my-4" dense>
                                 <template v-slot:default>
                                     <thead>
                                         <tr>
@@ -76,8 +76,15 @@
                                     </tbody>
                                 </template>
                             </v-simple-table>
+                            <v-row>
+                                <v-col>
+                                    <v-btn block :color="subTopicData.topicColor" :disabled="!isNotValid" @click="restartQuiz()">Restart</v-btn>
+                                </v-col>
+                                <v-col>
+                                    <v-btn block  to="/">Home</v-btn>
+                                </v-col>
+                            </v-row>
                         </v-container>
-                        <v-btn to="/" block>Home</v-btn>
                     </v-stepper-content>
 
                 </v-stepper-items>
@@ -106,8 +113,7 @@
                 currentQuestionNumber: 0,
                 currentQuestionAnswer: '',
 
-                results:[],
-                test: null
+                results:[]
             }
         },
         methods:{
@@ -136,6 +142,15 @@
             },
             findCorrectAnswers(){
                 return this.results.filter(questionData => questionData.userAnswer === questionData.correctAnswer).length;
+            },
+            restartQuiz(){
+                this.stepperCount = 1;
+                this.numOfQuestions = null;
+                this.difficulty = null;
+                this.$refs.form.resetValidation();
+                this.currentQuestionNumber = 0;
+                this.currentQuestionAnswer = '';
+                this.results = [];
             }
         }
     }
