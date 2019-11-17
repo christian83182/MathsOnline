@@ -53,8 +53,31 @@
                         </div>
                     </v-stepper-content>
 
-                    <v-stepper-content step="3">
-                        results here
+                    <v-stepper-content step="3" class="pa-0">
+                        <v-container class="pa-0">
+                            <div class="d-block text-center display-2 font-weight-light mt-12 mx-2">Result: {{Math.round((findCorrectAnswers()/numOfQuestions)*100)}}%</div>
+                            <div class="d-block text-center title font-weight-light mb-12 mx-2">You answered {{findCorrectAnswers()}} of {{numOfQuestions}} questions correctly</div>
+                            <v-simple-table class="ma-4" dense>
+                                <template v-slot:default>
+                                    <thead>
+                                        <tr>
+                                            <th class="text-left">Question</th>
+                                            <th class="text-center">Your Answer</th>
+                                            <th class="text-center">Correct Answer</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(questionData, index) in results" :key="index"
+                                            :class="questionData.userAnswer === questionData.correctAnswer? 'default' : 'error white--text'">
+                                            <td class="text-left">{{ questionData.questionNum }}) {{ questionData.questionText}}</td>
+                                            <td class="text-center">{{ questionData.userAnswer }}</td>
+                                            <td class="text-center">{{ questionData.correctAnswer }}</td>
+                                        </tr>
+                                    </tbody>
+                                </template>
+                            </v-simple-table>
+                        </v-container>
+                        <v-btn to="/" block>Home</v-btn>
                     </v-stepper-content>
 
                 </v-stepper-items>
@@ -83,7 +106,8 @@
                 currentQuestionNumber: 0,
                 currentQuestionAnswer: '',
 
-                results:[]
+                results:[],
+                test: null
             }
         },
         methods:{
@@ -103,13 +127,16 @@
 
                 if(this.currentQuestionNumber.toString() === this.numOfQuestions){
                     this.stepperCount++;
-                    console.log("part3!")
+                    this.findCorrectAnswers();
                 } else {
                     this.currentQuestionAnswer = "";
                     this.currentQuestionNumber++;
                     this.currentQuestionData = this.generateQuestion(this.difficulty);
                 }
             },
+            findCorrectAnswers(){
+                return this.results.filter(questionData => questionData.userAnswer === questionData.correctAnswer).length;
+            }
         }
     }
 </script>
