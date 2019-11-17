@@ -41,6 +41,10 @@ const routes = [
     path: "/median",
     name: "median",
     component: () => import("../views/QuizViews/Median.vue")
+  },{
+    path: "/mode",
+    name: "mode",
+    component: () => import("../views/QuizViews/Mode.vue")
   }
 ];
 
