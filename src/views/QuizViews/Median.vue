@@ -19,8 +19,9 @@
                         let numArray = [getRndInteger(1,20),getRndInteger(1,20),getRndInteger(1,20),getRndInteger(1,20),getRndInteger(1,20)];
                         let sorted = numArray.slice(0);
                         sorted.sort((x,y) => x-y);
+                        let questionString = numArray[0] +", " + numArray[1] +", " + numArray[2]+", " + numArray[3]+", " + numArray[4];
                         questionData= {
-                            question: "Find the median of: " + numArray[0] +", " + numArray[1] +", " + numArray[2]+", " + numArray[3]+", " + numArray[4],
+                            question: "<span class='font-weight-thin mr-4'>Find the median of: </span> <span>"+ questionString +"</span>",
                             correctAnswer: sorted[2],
                             incorrectAnswers: []
                         }
@@ -30,8 +31,9 @@
                         let numArray = [getRndInteger(1,50),getRndInteger(1,50),getRndInteger(1,50),getRndInteger(1,50),getRndInteger(1,50),getRndInteger(1,50)];
                         let sorted = numArray.slice(0);
                         sorted.sort((x,y) => x-y);
+                        let questionString = numArray[0] +", " + numArray[1] +", " + numArray[2]+", " + numArray[3]+", " + numArray[4]+", " + numArray[5];
                         questionData= {
-                            question: "Find the median of: " + numArray[0] +", " + numArray[1] +", " + numArray[2]+", " + numArray[3]+", " + numArray[4]+", " + numArray[5],
+                            question: "<span class='font-weight-thin mr-4'>Find the median of: </span> <span>"+ questionString +"</span>",
                             correctAnswer: (sorted[2] + sorted[3])/2,
                             incorrectAnswers: []
                         }
@@ -43,8 +45,9 @@
                             ,getRndInteger(10,500)/multiplier,getRndInteger(10,500)/multiplier,getRndInteger(10,500)/multiplier];
                         let sorted = numArray.slice(0);
                         sorted.sort((x,y) => x-y);
+                        let questionString = numArray[0] +", " + numArray[1] +", " + numArray[2]+", " + numArray[3]+", " + numArray[4]+", " + numArray[5];
                         questionData= {
-                            question: "Find the median of: " + numArray[0] +", " + numArray[1] +", " + numArray[2]+", " + numArray[3]+", " + numArray[4]+", " + numArray[5],
+                            question: "<span class='font-weight-thin mr-4'>Find the median of: </span> <span>"+ questionString +"</span>",
                             correctAnswer: (sorted[2] + sorted[3])/2,
                             incorrectAnswers: []
                         }

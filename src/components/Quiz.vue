@@ -32,6 +32,7 @@
                                 <v-btn block :color="subTopicData.topicColor" :disabled="!isNotValid" @click="beginQuiz()">Start</v-btn>
                             </v-col>
                         </v-row>
+                        <br/>
                     </v-stepper-content>
 
 
@@ -43,8 +44,8 @@
                             </v-progress-linear>
 
                             <v-container>
-                                <div class="d-none d-md-block display-1 text-center my-12 px-6">{{ currentQuestionData.question }}</div>
-                                <div class="d-sm-block d-md-none headline text-center my-12 px-6">{{ currentQuestionData.question }}</div>
+                                <div class="d-none d-md-block display-1 text-center my-12 px-6" v-html="currentQuestionData.question"></div>
+                                <div class="d-sm-block d-md-none headline text-center my-12 px-6" v-html="currentQuestionData.question"></div>
                                 <v-text-field class="mb-2" v-model="currentQuestionAnswer" type="number" label="Enter your answer..."
                                               @keyup.enter.native="() => {if(currentQuestionAnswer !== '') nextQuestion()}"
                                               outlined hide-details clearable autofocus></v-text-field>

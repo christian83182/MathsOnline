@@ -21,9 +21,10 @@
                         let thirdNum = getRndInteger(10,20);
                         let numArray = [firstNum, firstNum*secondNum, thirdNum, thirdNum, thirdNum];
                         numArray.sort(() => Math.random()-0.5);
+                        let questionString = numArray[0] +", " + numArray[1] +", " + numArray[2]+", " + numArray[3]+", " + numArray[4];
 
                         questionData= {
-                            question: "Find the mode of: " + numArray[0] +", " + numArray[1] +", " + numArray[2]+", " + numArray[3]+", " + numArray[4],
+                            question: "<span class='font-weight-thin mr-4'>Find the mode of: </span> <span>"+ questionString +"</span>",
                             correctAnswer: thirdNum,
                             incorrectAnswers: []
                         }
@@ -37,14 +38,11 @@
                         let numArray = [firstNum, secondNum, secondNum ,thirdNum, fourthNum, fourthNum, fourthNum, fourthNum, fourthNum];
                         numArray.sort(() => Math.random()-0.5);
 
-                        let questionString = "";
-                        for(let i in numArray){
-                            questionString += numArray[i] + ", "
-                        }
+                        let questionString = numArray[0] +", " + numArray[1] +", " + numArray[2]+", " + numArray[3]
+                            +", " + numArray[4]+", " + numArray[5]+", " + numArray[6]+", " + numArray[7]+", " + numArray[8];
 
                         questionData= {
-                            question: "Find the mode of: " + numArray[0] +", " + numArray[1] +", " + numArray[2]+", " + numArray[3]
-                                +", " + numArray[4]+", " + numArray[5]+", " + numArray[6]+", " + numArray[7]+", " + numArray[8],
+                            question: "<span class='font-weight-thin mr-4'>Find the mode of: </span> <span>"+ questionString +"</span>",
                             correctAnswer: fourthNum,
                             incorrectAnswers: []
                         }
@@ -59,14 +57,11 @@
                         let numArray = [firstNum, secondNum, secondNum ,thirdNum, fourthNum, fourthNum, fourthNum, fourthNum, fourthNum];
                         numArray.sort(() => Math.random()-0.5);
 
-                        let questionString = "";
-                        for(let i in numArray){
-                            questionString += numArray[i] + ", "
-                        }
+                        let questionString = numArray[0] +", " + numArray[1] +", " + numArray[2]+", " + numArray[3]
+                            +", " + numArray[4]+", " + numArray[5]+", " + numArray[6]+", " + numArray[7]+", " + numArray[8];
 
                         questionData= {
-                            question: "Find the mode of: " + numArray[0] +", " + numArray[1] +", " + numArray[2]+", " + numArray[3]
-                                +", " + numArray[4]+", " + numArray[5]+", " + numArray[6]+", " + numArray[7]+", " + numArray[8],
+                            question: "<span class='font-weight-thin mr-4'>Find the mode of: </span> <span>"+ questionString +"</span>",
                             correctAnswer: fourthNum,
                             incorrectAnswers: []
                         }

@@ -18,8 +18,9 @@
                     if(difficulty === 'Easy'){
                         let firstNum = getRndInteger(0,10);
                         let secondNum = getRndInteger(0,10);
+                        let questionString = firstNum + " + " + secondNum + " = ?";
                         questionData= {
-                            question: firstNum + " + " + secondNum + " = ?",
+                            question: "<span class='font-weight-thin mr-4'>Solve: </span> <span>"+ questionString +"</span>",
                             correctAnswer: firstNum + secondNum,
                             incorrectAnswers: []
                         }
@@ -28,8 +29,9 @@
                     } else if(difficulty === "Medium"){
                         let firstNum = getRndInteger(0,100);
                         let secondNum = getRndInteger(0,100);
+                        let questionString = firstNum + " + " + secondNum + " = ?";
                         questionData= {
-                            question: firstNum + " + " + secondNum + " = ?",
+                            question: "<span class='font-weight-thin mr-4'>Solve: </span> <span>"+ questionString +"</span>",
                             correctAnswer: firstNum + secondNum,
                             incorrectAnswers: []
                         }
@@ -38,8 +40,9 @@
                     } else {
                         let firstNum = getRndInteger(0,1000);
                         let secondNum = getRndInteger(0,1000);
+                        let questionString = firstNum + " + " + secondNum + " = ?";
                         questionData= {
-                            question: firstNum + " + " + secondNum + " = ?",
+                            question: "<span class='font-weight-thin mr-4'>Solve: </span> <span>"+ questionString +"</span>",
                             correctAnswer: firstNum + secondNum,
                             incorrectAnswers: []
                         }
