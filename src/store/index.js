@@ -12,8 +12,8 @@ export default new Vuex.Store({
       subTopics:[
         {name:"Addition",icon:"mdi-plus",route:"/addition"},
         {name:"Subtraction",icon:"mdi-minus",route:"/subtraction"},
-        {name:"Multiplication",icon:"mdi-close",route:""},
-        {name:"Division",icon:"mdi-division",route:""}]
+        {name:"Multiplication",icon:"mdi-close",route:"/multiplication"},
+        {name:"Division",icon:"mdi-division",route:"/division"}]
     },{
       name: "Non-Integer Arithmetic",
       description: "Non-Integer arithmetic applies to operators which result in non-whole numbers, such as fractions, decimals, and percentages.",

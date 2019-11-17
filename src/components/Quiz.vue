@@ -21,15 +21,15 @@
                         <v-form v-model="isNotValid" ref="form">
                             <v-text-field class="mt-1" type="number" label="Select number of questions..." outlined
                                           v-model="numOfQuestions" :rules="nameRules" clearable></v-text-field>
-                            <v-select :items="['Easy','Medium','Hard']" label="Select a difficulty..." outlined
+                            <v-select :items="difficultyOptions" label="Select a difficulty..." outlined
                                       v-model="difficulty" :rules="difficultyRules"></v-select >
                         </v-form>
                         <v-row>
                             <v-col>
-                                <v-btn block color="error" to="/">Home</v-btn>
+                                <v-btn block to="/">Home</v-btn>
                             </v-col>
                             <v-col>
-                                <v-btn block color="success" :disabled="!isNotValid" @click="beginQuiz()">Start</v-btn>
+                                <v-btn block :color="subTopicData.topicColor" :disabled="!isNotValid" @click="beginQuiz()">Start</v-btn>
                             </v-col>
                         </v-row>
                     </v-stepper-content>
@@ -48,7 +48,14 @@
                                 <v-text-field class="mb-2" v-model="currentQuestionAnswer" type="number" label="Enter your answer..."
                                               @keyup.enter.native="() => {if(currentQuestionAnswer !== '') nextQuestion()}"
                                               outlined hide-details clearable autofocus></v-text-field>
-                                <v-btn block :disabled="currentQuestionAnswer === ''" @click="nextQuestion">Next Question</v-btn>
+                                <v-row>
+                                    <v-col>
+                                        <v-btn block @click="restartQuiz()">Restart</v-btn>
+                                    </v-col>
+                                    <v-col>
+                                        <v-btn block :disabled="currentQuestionAnswer === ''" @click="nextQuestion">Next Question</v-btn>
+                                    </v-col>
+                                </v-row>
                             </v-container>
                         </div>
                     </v-stepper-content>
@@ -98,6 +105,7 @@
         name: "Quiz",
         props:{
             generateQuestion: Function,
+            difficultyOptions: Array,
             subTopicData: Object
         },
         data(){

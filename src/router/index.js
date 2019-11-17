@@ -25,6 +25,14 @@ const routes = [
     path: "/subtraction",
     name: "subtraction",
     component: () => import("../views/Subtraction.vue")
+  },{
+    path: "/multiplication",
+    name: "multiplication",
+    component: () => import("../views/Multiplication.vue")
+  },{
+    path: "/division",
+    name: "division",
+    component: () => import("../views/Division.vue")
   }
 ];
 

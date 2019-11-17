@@ -1,5 +1,7 @@
 <template>
-    <Quiz :generateQuestion="generateQuestion" :subTopicData="generateDataObject()"/>
+    <Quiz :generateQuestion="generateQuestion"
+          :difficultyOptions="['Beginner','Easy','Medium','Hard','Expert']"
+          :subTopicData="generateDataObject()"/>
 </template>
 
 <script>
@@ -12,8 +14,7 @@
                 generateQuestion: function (difficulty) {
                     let questionData = null;
 
-                    //easy
-                    if(difficulty === 'Easy'){
+                    if(difficulty === 'Beginner'){
                         let firstNum = getRndInteger(10,20);
                         let secondNum = getRndInteger(0,10);
                         questionData= {
@@ -22,17 +23,33 @@
                             incorrectAnswers: []
                         }
 
-                    //medium
-                    } else if(difficulty === "Medium"){
-                        let firstNum = getRndInteger(50,100);
-                        let secondNum = getRndInteger(0,50);
+                    } else if(difficulty === "Easy"){
+                        let firstNum = getRndInteger(0,10);
+                        let secondNum = getRndInteger(0,10);
                         questionData= {
                             question: firstNum + " - " + secondNum + " = ?",
                             correctAnswer: (firstNum - secondNum).toString(),
                             incorrectAnswers: []
                         }
 
-                    //hard
+                    } else if(difficulty === "Medium"){
+                        let firstNum = getRndInteger(0,100);
+                        let secondNum = getRndInteger(0,100);
+                        questionData= {
+                            question: firstNum + " - " + secondNum + " = ?",
+                            correctAnswer: (firstNum - secondNum).toString(),
+                            incorrectAnswers: []
+                        }
+
+                    } else if(difficulty === "Hard"){
+                        let firstNum = getRndInteger(0,500);
+                        let secondNum = getRndInteger(0,500);
+                        questionData= {
+                            question: firstNum + " - " + secondNum + " = ?",
+                            correctAnswer: (firstNum - secondNum).toString(),
+                            incorrectAnswers: []
+                        }
+
                     } else {
                         let firstNum = getRndInteger(0,1000);
                         let secondNum = getRndInteger(0,1000);
