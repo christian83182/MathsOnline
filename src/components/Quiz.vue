@@ -1,15 +1,15 @@
 <template>
-    <v-container class="fill-height justify-center">
-        <v-responsive max-width="800" class="elevation-24">
-            <v-stepper v-model="stepperCount">
-                <v-toolbar :color="subTopicData.topicColor">
+    <v-container class="fill-height justify-center" fluid>
+        <v-card max-width="1000" class="flex-grow-1">
+            <v-stepper v-model="stepperCount" class="flex-grow-1 elevation-24">
+                <v-toolbar :color="subTopicData.topicColor" dense>
                     <v-toolbar-title>
                         <span class="font-weight-regular text-uppercase">{{ subTopicData.topicName }} </span>
                         <span class="font-weight-light">| {{ subTopicData.subTopicName }}</span>
                     </v-toolbar-title>
                 </v-toolbar>
-                <v-stepper-header>
-                    <v-stepper-step :complete="stepperCount > 1" step="1" :color="subTopicData.topicColor">Configure Practice</v-stepper-step>
+                <v-stepper-header class="d-none d-md-flex">
+                    <v-stepper-step :complete="stepperCount > 1" step="1" :color="subTopicData.topicColor">Configure</v-stepper-step>
                     <v-divider></v-divider>
                     <v-stepper-step :complete="stepperCount > 2" step="2" :color="subTopicData.topicColor">Answer Questions</v-stepper-step>
                     <v-divider></v-divider>
@@ -20,7 +20,7 @@
                     <v-stepper-content step="1">
                         <v-form v-model="isNotValid">
                             <v-text-field class="mt-1" type="number" label="Select number of questions..." outlined
-                                    v-model="numOfQuestions" :rules="nameRules"></v-text-field>
+                                          v-model="numOfQuestions" :rules="nameRules" clearable></v-text-field>
                             <v-select :items="['Easy','Medium','Hard']" label="Select a difficulty..." outlined
                                       v-model="difficulty" :rules="difficultyRules"></v-select >
                         </v-form>
@@ -29,24 +29,37 @@
                                 <v-btn block color="error" to="/">Home</v-btn>
                             </v-col>
                             <v-col>
-                                <v-btn block color="success" :disabled="!isNotValid" @click="stepperCount++">Start</v-btn>
+                                <v-btn block color="success" :disabled="!isNotValid" @click="beginQuiz()">Start</v-btn>
                             </v-col>
                         </v-row>
                     </v-stepper-content>
 
 
 
-                    <v-stepper-content step="2">
+                    <v-stepper-content step="2" class="pa-2  pt-5 pt-md-0">
+                        <div v-if="currentQuestionData !== null">
+                            <v-progress-linear :value="(currentQuestionNumber/numOfQuestions)*100" :color="subTopicData.topicColor" height="25" rounded>
+                                <template v-slot="{ value }"><strong>Question {{ currentQuestionNumber }} / {{ numOfQuestions }}</strong></template>
+                            </v-progress-linear>
+
+                            <v-container>
+                                <div class="d-none d-md-block display-2 text-center my-12 px-6">{{ currentQuestionData.question }}</div>
+                                <div class="d-sm-block d-md-none headline text-center my-12 px-6">{{ currentQuestionData.question }}</div>
+                                <v-text-field class="mb-2" v-model="currentQuestionAnswer" type="number" label="Enter your answer..."
+                                              @keyup.enter.native="() => {if(currentQuestionAnswer !== '') nextQuestion()}"
+                                              outlined hide-details clearable autofocus></v-text-field>
+                                <v-btn block :disabled="currentQuestionAnswer === ''" @click="nextQuestion">Next Question</v-btn>
+                            </v-container>
+                        </div>
                     </v-stepper-content>
 
-
-
                     <v-stepper-content step="3">
+                        results here
                     </v-stepper-content>
 
                 </v-stepper-items>
             </v-stepper>
-        </v-responsive>
+        </v-card>
     </v-container>
 </template>
 
@@ -60,18 +73,43 @@
         data(){
             return{
                 stepperCount: 1,
+                isNotValid: null,
+                nameRules: [v => !!v || 'This field cannot be left blank', v => (v && v > 0) || 'Number cannot be negative', v => (v && v < 101) || 'Cannot select over 100 questions'],
+                difficultyRules: [v => !!v || 'This field cannot be left blank'],
+
                 numOfQuestions: null,
                 difficulty: null,
-                isNotValid: null,
-                nameRules: [
-                    v => !!v || 'This field cannot be left blank',
-                    v => (v && v > 0) || 'Number cannot be negative',
-                    v => (v && v < 101) || 'Cannot select over 100 questions'
-                ],
-                difficultyRules: [
-                    v => !!v || 'This field cannot be left blank'
-                ],
+                currentQuestionData: null,
+                currentQuestionNumber: 0,
+                currentQuestionAnswer: '',
+
+                results:[]
             }
+        },
+        methods:{
+            beginQuiz(){
+                this.stepperCount++;
+                this.nextQuestion();
+            },
+            nextQuestion(){
+                if(this.currentQuestionNumber > 0){
+                    this.results.push({
+                        questionNum: this.currentQuestionNumber,
+                        questionText: this.currentQuestionData.question,
+                        userAnswer: this.currentQuestionAnswer,
+                        correctAnswer: this.currentQuestionData.correctAnswer
+                    });
+                }
+
+                if(this.currentQuestionNumber.toString() === this.numOfQuestions){
+                    this.stepperCount++;
+                    console.log("part3!")
+                } else {
+                    this.currentQuestionAnswer = "";
+                    this.currentQuestionNumber++;
+                    this.currentQuestionData = this.generateQuestion(this.difficulty);
+                }
+            },
         }
     }
 </script>

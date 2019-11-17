@@ -7,13 +7,14 @@
     export default {
         name: "Addition",
         components: {Quiz},
-        data(){
-            return{
-                generateQuestion(){
-                    return{
-                        question:"2+2=?",
-                        correctAnswer:"4",
-                        incorrectAnswers:["1","9","3"]
+        data: function () {
+            return {
+                generateQuestion: function (difficulty) {
+                    let rand = Math.round(Math.random() * 10);
+                    return {
+                        question: "5 + " + rand + " = ?",
+                        correctAnswer: (rand + 5).toString(),
+                        incorrectAnswers: ["1", "9", "3"]
                     }
                 },
             }
