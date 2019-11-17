@@ -45,6 +45,10 @@ const routes = [
     path: "/mode",
     name: "mode",
     component: () => import("../views/QuizViews/Mode.vue")
+  },{
+    path: "/range",
+    name: "range",
+    component: () => import("../views/QuizViews/Range.vue")
   }
 ];
 

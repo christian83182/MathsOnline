@@ -127,7 +127,7 @@
         },
         methods:{
             beginQuiz(){
-                this.stepperCount++;
+                this.stepperCount = 2;
                 this.nextQuestion();
             },
             nextQuestion(){
@@ -141,7 +141,7 @@
                 }
 
                 if(this.currentQuestionNumber.toString() === this.numOfQuestions){
-                    this.stepperCount++;
+                    this.stepperCount = 3;
                     this.findCorrectAnswers();
                 } else {
                     this.currentQuestionAnswer = "";
