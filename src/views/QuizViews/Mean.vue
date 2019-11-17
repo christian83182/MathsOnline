@@ -63,8 +63,8 @@
         },
         methods:{
             generateDataObject(){
-                let topicData = this.$store.state.topics.find(x => x.name === 'Basic Arithmetic');
-                let subTopicData = topicData.subTopics.find(x => x.name === 'Addition');
+                let topicData = this.$store.state.topics.find(x => x.name === 'Statistics');
+                let subTopicData = topicData.subTopics.find(x => x.name === 'Mean');
                 return {
                     topicName: topicData.name,
                     topicDescription: topicData.description,
