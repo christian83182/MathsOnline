@@ -19,7 +19,7 @@
                         let secondNum = getRndInteger(0,10);
                         questionData= {
                             question: firstNum + " x " + secondNum + " = ?",
-                            correctAnswer: (firstNum * secondNum).toString(),
+                            correctAnswer: firstNum * secondNum,
                             incorrectAnswers: []
                         }
 
@@ -28,7 +28,7 @@
                         let secondNum = getRndInteger(0,12);
                         questionData= {
                             question: firstNum + " x " + secondNum + " = ?",
-                            correctAnswer: (firstNum * secondNum).toString(),
+                            correctAnswer: firstNum * secondNum,
                             incorrectAnswers: []
                         }
 
@@ -37,7 +37,7 @@
                         let secondNum = getRndInteger(0,50);
                         questionData= {
                             question: firstNum + " x " + secondNum + " = ?",
-                            correctAnswer: (firstNum * secondNum).toString(),
+                            correctAnswer: firstNum * secondNum,
                             incorrectAnswers: []
                         }
 
@@ -46,7 +46,7 @@
                         let secondNum = getRndInteger(0,1000);
                         questionData= {
                             question: firstNum + " x " + secondNum + " = ?",
-                            correctAnswer: (firstNum * secondNum).toString(),
+                            correctAnswer: firstNum * secondNum,
                             incorrectAnswers: []
                         }
                     }

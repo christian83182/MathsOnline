@@ -1,46 +1,61 @@
 <template>
     <Quiz :generateQuestion="generateQuestion"
-          :difficultyOptions="['Easy','Medium','Hard']"
+          :difficultyOptions="['Beginner','Easy','Medium','Hard','Expert']"
           :subTopicData="generateDataObject()"/>
 </template>
 
 <script>
     import Quiz from "@/components/Quiz";
     export default {
-        name: "Addition",
+        name: "Subtraction",
         components: {Quiz},
         data: function () {
             return {
                 generateQuestion: function (difficulty) {
                     let questionData = null;
 
-                    //easy
-                    if(difficulty === 'Easy'){
-                        let firstNum = getRndInteger(0,10);
+                    if(difficulty === 'Beginner'){
+                        let firstNum = getRndInteger(10,20);
                         let secondNum = getRndInteger(0,10);
                         questionData= {
-                            question: firstNum + " + " + secondNum + " = ?",
-                            correctAnswer: (firstNum + secondNum).toString(),
+                            question: firstNum + " - " + secondNum + " = ?",
+                            correctAnswer: (firstNum - secondNum),
                             incorrectAnswers: []
                         }
 
-                    //medium
+                    } else if(difficulty === "Easy"){
+                        let firstNum = getRndInteger(0,10);
+                        let secondNum = getRndInteger(0,10);
+                        questionData= {
+                            question: firstNum + " - " + secondNum + " = ?",
+                            correctAnswer: (firstNum - secondNum),
+                            incorrectAnswers: []
+                        }
+
                     } else if(difficulty === "Medium"){
                         let firstNum = getRndInteger(0,100);
                         let secondNum = getRndInteger(0,100);
                         questionData= {
-                            question: firstNum + " + " + secondNum + " = ?",
-                            correctAnswer: (firstNum + secondNum).toString(),
+                            question: firstNum + " - " + secondNum + " = ?",
+                            correctAnswer: (firstNum - secondNum),
                             incorrectAnswers: []
                         }
 
-                    //hard
+                    } else if(difficulty === "Hard"){
+                        let firstNum = getRndInteger(0,500);
+                        let secondNum = getRndInteger(0,500);
+                        questionData= {
+                            question: firstNum + " - " + secondNum + " = ?",
+                            correctAnswer: (firstNum - secondNum),
+                            incorrectAnswers: []
+                        }
+
                     } else {
                         let firstNum = getRndInteger(0,1000);
                         let secondNum = getRndInteger(0,1000);
                         questionData= {
-                            question: firstNum + " + " + secondNum + " = ?",
-                            correctAnswer: (firstNum + secondNum).toString(),
+                            question: firstNum + " - " + secondNum + " = ?",
+                            correctAnswer: (firstNum - secondNum).toString(),
                             incorrectAnswers: []
                         }
                     }
@@ -52,7 +67,7 @@
         methods:{
             generateDataObject(){
                 let topicData = this.$store.state.topics.find(x => x.name === 'Basic Arithmetic');
-                let subTopicData = topicData.subTopics.find(x => x.name === 'Addition');
+                let subTopicData = topicData.subTopics.find(x => x.name === 'Subtraction');
                 return {
                     topicName: topicData.name,
                     topicDescription: topicData.description,

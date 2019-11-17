@@ -7,37 +7,40 @@
 <script>
     import Quiz from "@/components/Quiz";
     export default {
-        name: "Subtraction",
+        name: "Addition",
         components: {Quiz},
         data: function () {
             return {
                 generateQuestion: function (difficulty) {
                     let questionData = null;
 
+                    //easy
                     if(difficulty === 'Easy'){
-                        let firstNum = getRndInteger(0,5);
-                        let secondNum = getRndInteger(1,5);
+                        let firstNum = getRndInteger(0,10);
+                        let secondNum = getRndInteger(0,10);
                         questionData= {
-                            question: firstNum*secondNum + " ÷ " + secondNum + " = ?",
-                            correctAnswer: (firstNum).toString(),
+                            question: firstNum + " + " + secondNum + " = ?",
+                            correctAnswer: firstNum + secondNum,
                             incorrectAnswers: []
                         }
 
+                    //medium
                     } else if(difficulty === "Medium"){
-                        let firstNum = getRndInteger(0,12);
-                        let secondNum = getRndInteger(1,12);
+                        let firstNum = getRndInteger(0,100);
+                        let secondNum = getRndInteger(0,100);
                         questionData= {
-                            question: firstNum*secondNum + " ÷ " + secondNum + " = ?",
-                            correctAnswer: (firstNum).toString(),
+                            question: firstNum + " + " + secondNum + " = ?",
+                            correctAnswer: firstNum + secondNum,
                             incorrectAnswers: []
                         }
 
+                    //hard
                     } else {
-                        let firstNum = getRndInteger(-24,24);
-                        let secondNum = getRndInteger(1,24);
+                        let firstNum = getRndInteger(0,1000);
+                        let secondNum = getRndInteger(0,1000);
                         questionData= {
-                            question: firstNum*secondNum + " ÷ " + secondNum + " = ?",
-                            correctAnswer: (firstNum).toString(),
+                            question: firstNum + " + " + secondNum + " = ?",
+                            correctAnswer: firstNum + secondNum,
                             incorrectAnswers: []
                         }
                     }
@@ -49,7 +52,7 @@
         methods:{
             generateDataObject(){
                 let topicData = this.$store.state.topics.find(x => x.name === 'Basic Arithmetic');
-                let subTopicData = topicData.subTopics.find(x => x.name === 'Division');
+                let subTopicData = topicData.subTopics.find(x => x.name === 'Addition');
                 return {
                     topicName: topicData.name,
                     topicDescription: topicData.description,

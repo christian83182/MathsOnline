@@ -43,7 +43,7 @@
                             </v-progress-linear>
 
                             <v-container>
-                                <div class="d-none d-md-block display-2 text-center my-12 px-6">{{ currentQuestionData.question }}</div>
+                                <div class="d-none d-md-block display-1 text-center my-12 px-6">{{ currentQuestionData.question }}</div>
                                 <div class="d-sm-block d-md-none headline text-center my-12 px-6">{{ currentQuestionData.question }}</div>
                                 <v-text-field class="mb-2" v-model="currentQuestionAnswer" type="number" label="Enter your answer..."
                                               @keyup.enter.native="() => {if(currentQuestionAnswer !== '') nextQuestion()}"
@@ -134,7 +134,7 @@
                     this.results.push({
                         questionNum: this.currentQuestionNumber,
                         questionText: this.currentQuestionData.question,
-                        userAnswer: this.currentQuestionAnswer,
+                        userAnswer: Number(this.currentQuestionAnswer),
                         correctAnswer: this.currentQuestionData.correctAnswer
                     });
                 }

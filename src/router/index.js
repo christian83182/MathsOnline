@@ -20,19 +20,23 @@ const routes = [
   },{
     path: "/addition",
     name: "addition",
-    component: () => import("../views/Addition.vue")
+    component: () => import("../views/QuizViews/Addition.vue")
   },{
     path: "/subtraction",
     name: "subtraction",
-    component: () => import("../views/Subtraction.vue")
+    component: () => import("../views/QuizViews/Subtraction.vue")
   },{
     path: "/multiplication",
     name: "multiplication",
-    component: () => import("../views/Multiplication.vue")
+    component: () => import("../views/QuizViews/Multiplication.vue")
   },{
     path: "/division",
     name: "division",
-    component: () => import("../views/Division.vue")
+    component: () => import("../views/QuizViews/Division.vue")
+  },{
+    path: "/mean",
+    name: "mean",
+    component: () => import("../views/QuizViews/Mean.vue")
   }
 ];
 
