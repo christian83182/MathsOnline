@@ -11,7 +11,7 @@ export default new Vuex.Store({
       color:"cyan",
       subTopics:[
         {name:"Addition",icon:"mdi-plus",route:"/addition"},
-        {name:"Subtraction",icon:"mdi-minus",route:""},
+        {name:"Subtraction",icon:"mdi-minus",route:"/subtraction"},
         {name:"Multiplication",icon:"mdi-close",route:""},
         {name:"Division",icon:"mdi-division",route:""}]
     },{
