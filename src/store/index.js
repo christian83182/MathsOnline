@@ -19,18 +19,18 @@ export default new Vuex.Store({
       description: "Non-Integer arithmetic applies to operators which result in non-whole numbers, such as fractions, decimals, and percentages.",
       color:"light-green",
       subTopics:[
-        {name:"Decimals",icon:"mdi-decimal",route:"/decimals"},
-        {name:"Fractions",icon:"mdi-ab-testing",route:"/fractions"},
-        {name:"Percentages",icon:"mdi-percent",route:"/percentages"}]
+        {name:"Decimals",icon:"mdi-decimal",route:""},
+        {name:"Fractions",icon:"mdi-ab-testing",route:""},
+        {name:"Percentages",icon:"mdi-percent",route:""}]
     },{
       name: "Miscellaneous Arithmetic",
       description: "This topic covers more complex/real life arithmetic such as problems involving area, volume, time, and currency.",
       color:"amber",
       subTopics:[
-        {name:"Area",icon:"mdi-square-outline",route:"/area"},
-        {name:"Volume",icon:"mdi-cube-outline",route:"/volume"},
-        {name:"Time",icon:"mdi-clock-outline",route:"/time"},
-        {name:"Currency",icon:"mdi-currency-gbp",route:"/currency"}]
+        {name:"Area",icon:"mdi-square-outline",route:""},
+        {name:"Volume",icon:"mdi-cube-outline",route:""},
+        {name:"Time",icon:"mdi-clock-outline",route:""},
+        {name:"Currency",icon:"mdi-currency-gbp",route:""}]
     },{
       name: "Statistics",
       description: "Focused primarily on basic averaging statistics including mean, median, mode, and range. ",
@@ -46,8 +46,8 @@ export default new Vuex.Store({
       color:"pink",
       subTopics:[
         {name:"Simplification",icon:"mdi-square-root",route:"/simplification"},
-        {name:"Using Formulas",icon:"mdi-function-variant",route:"/formulas"},
-        {name:"Solving Equations",icon:"mdi-thought-bubble",route:"/equations"}]
+        {name:"Using Formulas",icon:"mdi-function-variant",route:""},
+        {name:"Solving Equations",icon:"mdi-thought-bubble",route:""}]
     }]
   },
   mutations: {},

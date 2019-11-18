@@ -33,7 +33,7 @@
                     </template>
 
                     <div v-for="(topic,index) in topicsList" :key="index">
-                        <v-list-item v-for="(subtopic, subIndex) in topic.subTopics" :key="subIndex" link :to="subtopic.route">
+                        <v-list-item v-for="(subtopic, subIndex) in topic.subTopics" :key="subIndex" link :to="subtopic.route" :disabled="subtopic.route === ''">
                             <v-list-item-icon class="pl-4"><v-icon :color="topic.color">{{ subtopic.icon }}</v-icon> </v-list-item-icon>
                             <v-list-item-content>{{ subtopic.name }}</v-list-item-content>
                         </v-list-item>
